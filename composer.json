@@ -59,8 +59,14 @@
         "allow-plugins": {
             "pestphp/pest-plugin": true,
             "php-http/discovery": true
+        },
+    "require": {
+            "fruitcake/laravel-cors": "^2.1"
         }
+
     },
     "minimum-stability": "stable",
     "prefer-stable": true
+
+
 }

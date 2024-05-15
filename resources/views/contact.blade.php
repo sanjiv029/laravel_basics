@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{Config('app.name')}}</title>
-</head>
-<body>
-    <h2> This is contact page</h2>
-</body>
-</html>
+
+@extends('Layouts.app')
+@section('content')
+    <h2> This is a contact page</h2>
+    <p>The current timestamp is {{time()}}</p>
+    {{-- The $name keyword displays the name that is given by the route i.e web.php --}}
+        <h3> Hello {{ $name }} </h3>
+@endsection
