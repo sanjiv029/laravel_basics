@@ -11,16 +11,40 @@
             {{$i}} <br>
       @endforeach
       @dd($contacts); --}}
-      <br>
-      <form action={{route('contact.submit')}}>
+      {{-- <br>
+      <div style="color: red;">
+        @foreach ($errors->all() as $error)
+            {{$error}}
+        @endforeach
+    </div> --}}
+    <div style="color: rgb(0, 255, 26);">
+        @if (Session::has('success'))
+        {{Session::get('success')}}
+            @php
+               Session::forget('success');
+            @endphp
+        @endif
+    </div>
+    <br>
+        <form action={{route('contact.submit')}} method="POST">
+            @csrf
         <label for="name">Name:</label>
-        <input type="text" name="name" id="">
+        <input type="text" name="name" value="{{ old('name') }}">
+        @error('name')
+        <div style="color: red;"> {{$message}} </div>
+        @enderror
         <br>
         <label for="email">Email:</label>
-        <input type="email" name="email">
+        <input type="email" name="email" value="{{ old('email') }}">
+        @error('email')
+        <div style="color: red;"> {{$message}} </div>
+        @enderror
         <br>
         <label for="Message">Message:</label>
-        <textarea  name="Message"></textarea>
+        @error('Message')
+        <div style="color: red;"> {{$message}} </div>
+        @enderror
+        <textarea  name="Message" >{{ old('Message') }}</textarea>
         <br>
         <button type="submit">Submit</button>
     </form>

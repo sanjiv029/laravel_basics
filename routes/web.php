@@ -18,12 +18,12 @@ Route::group(["prefix"=> "blog"], function () {
 });
 Route::get('/contact',[contactController::class,'index1']);
 
-Route::get('/',[homepageController::class,'index']);
+Route::get('/',[homepageController::class,'index'])->name('home');
 /* Route::get('/', function () {
     return view('welcome');
 }); */
 
-Route::get('/submit-contact',[contactController::class,'store'])->name('contact.submit');
+Route::post('/submit-contact',[contactController::class,'store'])->name('contact.submit');
 
 Route::get('/middleware1',function(){
    return view('');
